@@ -2559,9 +2559,9 @@ function Luna:CreateWindow(WindowSettings)
 		for i,v in pairs(HomeTabSettings.SupportedExecutors) do
 			if isStudio then HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Luna Interface Suite - Debugging Mode" break end
 			if v == identifyexecutor() then
-				HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Your Executor Idk?"
+				HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Your Executor Don't Support 😭"
 			else
-				HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Your Executor Idk?"
+				HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Your Executor Support ⭐"
 			end
 		end
 
