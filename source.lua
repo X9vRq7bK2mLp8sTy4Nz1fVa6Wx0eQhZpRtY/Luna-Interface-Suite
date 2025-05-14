@@ -2252,7 +2252,7 @@ function Luna:CreateWindow(WindowSettings)
 
 	WindowSettings.KeySettings.SecondAction = Kwargify({
 		Enabled = false,
-		Type = "No Server Right Now [COMING SOON]", -- Link/Discord
+		Type = "Discord", -- Link/Discord
 		Parameter = "" -- for discord, add the invite link like home tab. for link, type the link of ur key sys
 	}, WindowSettings.KeySettings.SecondAction)
 
@@ -2370,7 +2370,7 @@ function Luna:CreateWindow(WindowSettings)
 			
 			Btn.Interact.MouseButton1Click:Connect(function()
 				if typesys == "Discord" then
-					setclipboard(tostring("https://discord.gg/"..KeySettings.SecondAction.Parameter)) -- Hunter if you see this I added copy also was too lazy to send u msg
+					setclipboard(tostring("There's No Discord Right Now Coming Soon"..KeySettings.SecondAction.Parameter)) -- Hunter if you see this I added copy also was too lazy to send u msg
 					if request then
 						request({
 							Url = 'http://127.0.0.1:6463/rpc?v=1',
