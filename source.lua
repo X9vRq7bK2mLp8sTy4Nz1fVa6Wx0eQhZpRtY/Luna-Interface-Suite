@@ -2252,7 +2252,7 @@ function Luna:CreateWindow(WindowSettings)
 
 	WindowSettings.KeySettings.SecondAction = Kwargify({
 		Enabled = false,
-		Type = "Discord", -- Link/Discord
+		Type = "No Server Right Now [COMING SOON]", -- Link/Discord
 		Parameter = "" -- for discord, add the invite link like home tab. for link, type the link of ur key sys
 	}, WindowSettings.KeySettings.SecondAction)
 
