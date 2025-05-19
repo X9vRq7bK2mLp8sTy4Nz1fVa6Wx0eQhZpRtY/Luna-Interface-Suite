@@ -2562,6 +2562,7 @@ function Luna:CreateWindow(WindowSettings)
 				HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Your Executor Don't Support 😭"
 			else
 				HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Your Executor Support ⭐"
+                                HomeTabPage.detailsholder.dashboard.Discord.Title.Text = "TikTok Link"
 			end
 		end
 
