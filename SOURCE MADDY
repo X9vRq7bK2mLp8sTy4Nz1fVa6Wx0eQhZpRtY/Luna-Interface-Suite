@@ -2551,7 +2551,7 @@ function Luna:CreateWindow(WindowSettings)
         end
 
 	
-		HomeTabPage.icon.ImageLabel.Image = "rbxassetid://31224213412"
+		HomeTabPage.icon.ImageLabel.Image = "rbxassetid://82498096882569"
 		HomeTabPage.player.Text.Text = "Hello, " .. Players.LocalPlayer.DisplayName .." [" .. rank .."]"
 		HomeTabPage.player.user.Text = Players.LocalPlayer.Name .. " - ".. WindowSettings.Name
 
@@ -2563,6 +2563,7 @@ function Luna:CreateWindow(WindowSettings)
 			else
 				HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Your Executor Support ⭐"
                                 HomeTabPage.detailsholder.dashboard.Discord.Title.Text = "TikTok Link"
+                                HomeTabPage.detailsholder.dashboard.Discord.Title.Text = "Click to Copy My Tiktok Account Link"
 			end
 		end
 
