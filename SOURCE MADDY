@@ -2563,7 +2563,7 @@ function Luna:CreateWindow(WindowSettings)
 			else
 				HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Your Executor Support ⭐"
                                 HomeTabPage.detailsholder.dashboard.Discord.Title.Text = "TikTok Link"
-                                HomeTabPage.detailsholder.dashboard.Discord.Title.Text = "Click to Copy My Tiktok Account Link"
+                                HomeTabPage.detailsholder.dashboard.Discord.Subtitle.Text = "Click to Copy My Tiktok Account Link"
 			end
 		end
 
