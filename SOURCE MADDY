@@ -2564,8 +2564,6 @@ function Luna:CreateWindow(WindowSettings)
 				HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Your Executor Support ⭐"
                                 HomeTabPage.detailsholder.dashboard.Discord.Title.Text = "TikTok Link"
                                 HomeTabPage.detailsholder.dashboard.Discord.Subtitle.Text = "Click to Copy My Tiktok Account Link"
-                                HomeTabPage.detailsholder.dashboard.Discord.UIGradient.Color = "0 0.580392 0.211765 0.211765 0 0.5 0.658824 0.262745 0.27451 0 1 0.737255 0.313726 0.337255 0"
-                                HomeTabPage.detailsholder.dashboard.Discord.UIStroke:Destroy()
 			end
 		end
 
