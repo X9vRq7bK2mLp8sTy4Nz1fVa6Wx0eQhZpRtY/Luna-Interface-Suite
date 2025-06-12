@@ -2370,7 +2370,7 @@ function Luna:CreateWindow(WindowSettings)
 			
 			Btn.Interact.MouseButton1Click:Connect(function()
 				if typesys == "Discord" then
-					setclipboard(tostring("No discord Right Now"..KeySettings.SecondAction.Parameter)) -- Hunter if you see this I added copy also was too lazy to send u msg
+					setclipboard(tostring("https://dsc.gg/astrolua"..KeySettings.SecondAction.Parameter)) -- Hunter if you see this I added copy also was too lazy to send u msg
 					if request then
 						request({
 							Url = 'http://127.0.0.1:6463/rpc?v=1',
