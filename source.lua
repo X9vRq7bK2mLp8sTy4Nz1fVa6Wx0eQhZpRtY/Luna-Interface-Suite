@@ -2550,8 +2550,6 @@ function Luna:CreateWindow(WindowSettings)
             rank = "👤 Member"
         end
 
-	        local Mobile = script.Parent.MobileSupport
-                Mobile.Interact.Text = "Astro | Toggle Interface"
 		HomeTabPage.icon.ImageLabel.Image = "rbxassetid://10670510697"
 		HomeTabPage.player.Text.Text = "Hello, " .. Players.LocalPlayer.DisplayName .." [" .. rank .."]"
 		HomeTabPage.player.user.Text = Players.LocalPlayer.Name .. " - ".. WindowSettings.Name
