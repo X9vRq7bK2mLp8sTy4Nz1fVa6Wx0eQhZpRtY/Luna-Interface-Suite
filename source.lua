@@ -1536,8 +1536,6 @@ local IconModule = {
 
 
 
-local Nord = loadstring(game:HttpGetAsync("https://scripts.nord.vip/NordNotifs.lua", true))();
-Nord:Notify(nil, "Hello User Just saying Syla Hub The real is deleted and you are using the skidded one - Syla Hub Owner (Adam) @sylahubowner on tiktok and discord :)", "success", 3);
 
 
 
