@@ -1534,6 +1534,13 @@ local IconModule = {
 	}
 }
 
+
+
+local Nord = loadstring(game:HttpGetAsync("https://scripts.nord.vip/NordNotifs.lua", true))();
+Nord:Notify(nil, "Hello User Just saying Syla Hub The real is deleted and you are using the skidded one - Syla Hub Owner (Adam) @sylahubowner on tiktok and discord :)", "success", 3);
+
+
+
 -- Other Variables
 local request = (syn and syn.request) or (http and http.request) or http_request or nil
 local tweeninfo = TweenInfo.new(0.3, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
@@ -6939,6 +6946,8 @@ if isStudio then
 	Tabs.Premium:BuildConfigSection()
 	Tabs.Premium:BuildThemeSection()]]
 end
+
+
 
 -- THIS IS THE DEBUG DEMO, ONLY USED WHEN TESTING NEW ELEMENTS AND CODE
 --[[if isStudio then
