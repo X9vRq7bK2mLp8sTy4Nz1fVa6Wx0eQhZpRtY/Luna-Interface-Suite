@@ -1534,16 +1534,11 @@ local IconModule = {
 	}
 }
 
-
-
-
--- vro lol 
--- 
 -- Other Variables
 local request = (syn and syn.request) or (http and http.request) or http_request or nil
 local tweeninfo = TweenInfo.new(0.3, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
 local PresetGradients = {
-	["Nightlight (Classic)"] = {Color3.fromRGB(255,149,9), Color3.fromRGB(255,149,9), Color3.fromRGB(255,149,9)},
+	["Nightlight (Classic)"] = {Color3.fromRGB(147, 255, 239), Color3.fromRGB(201,211,233), Color3.fromRGB(255, 167, 227)},
 	["Nightlight (Neo)"] = {Color3.fromRGB(117, 164, 206), Color3.fromRGB(123, 201, 201), Color3.fromRGB(224, 138, 175)},
 	Starlight = {Color3.fromRGB(147, 255, 239), Color3.fromRGB(181, 206, 241), Color3.fromRGB(214, 158, 243)},
 	Solar = {Color3.fromRGB(242, 157, 76), Color3.fromRGB(240, 179, 81), Color3.fromRGB(238, 201, 86)},
@@ -2550,12 +2545,12 @@ function Luna:CreateWindow(WindowSettings)
 
 	local rank
         if game.Players.LocalPlayer.Name == "IPNZ4" then
-            rank = "Skid"
+            rank = "⭐ Owner"
         else
-            rank = "bro use skidded script😔"
+            rank = "👤 Member"
         end
 		
-		HomeTabPage.icon.ImageLabel.Image = "rbxassetid://2419200548"
+		HomeTabPage.icon.ImageLabel.Image = "rbxassetid://10670510697"
 		HomeTabPage.player.Text.Text = "Hello, " .. Players.LocalPlayer.DisplayName .." [" .. rank .."]"
 		HomeTabPage.player.user.Text = Players.LocalPlayer.Name .. " - ".. WindowSettings.Name
 
@@ -6944,8 +6939,6 @@ if isStudio then
 	Tabs.Premium:BuildConfigSection()
 	Tabs.Premium:BuildThemeSection()]]
 end
-
-
 
 -- THIS IS THE DEBUG DEMO, ONLY USED WHEN TESTING NEW ELEMENTS AND CODE
 --[[if isStudio then
