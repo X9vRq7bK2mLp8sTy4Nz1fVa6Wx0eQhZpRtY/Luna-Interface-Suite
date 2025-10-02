@@ -2550,7 +2550,12 @@ function Luna:CreateWindow(WindowSettings)
             rank = "⭐️ Member"
         end
 		
-		HomeTabPage.icon.ImageLabel.Image = Players:GetUserThumbnailAsync(Players.LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+		HomeTabPage.icon.ImageLabel.Image = Players:GetUserThumbnailAsync(
+    Players.LocalPlayer.UserId, 
+    Enum.ThumbnailType.HeadShot, 
+    Enum.ThumbnailSize.Size420x420
+)
+Instance.new("UICorner", HomeTabPage.icon.ImageLabel).CornerRadius = UDim.new(0, 10)
 		HomeTabPage.player.Text.Text = "Hello, " .. Players.LocalPlayer.DisplayName .." [" .. rank .."]"
 		HomeTabPage.player.user.Text = Players.LocalPlayer.Name .. " - ".. WindowSettings.Name
 
