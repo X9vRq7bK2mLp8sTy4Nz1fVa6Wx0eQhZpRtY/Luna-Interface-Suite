@@ -2556,7 +2556,7 @@ function Luna:CreateWindow(WindowSettings)
     Enum.ThumbnailSize.Size420x420
 )
 Instance.new("UICorner", HomeTabPage.icon.ImageLabel).CornerRadius = UDim.new(0, 10)
-		HomeTabPage.player.Text.Text = "Hello, " .. Players.LocalPlayer.DisplayName .." [" .. rank .."]"
+		HomeTabPage.player.Text.Text = "Hello, " .. Players.LocalPlayer.DisplayName:sub(1,1):upper() .. Players.LocalPlayer.DisplayName:sub(2) .. " [" .. rank .. "]"
 		HomeTabPage.player.user.Text = Players.LocalPlayer.Name .. " - ".. WindowSettings.Name
 
 		HomeTabPage.detailsholder.dashboard.Client.Title.Text = (isStudio and "Debugging (Studio)" or identifyexecutor()) or "Your Executor Idk? identifyexecutor."
