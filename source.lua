@@ -2547,10 +2547,10 @@ function Luna:CreateWindow(WindowSettings)
         if game.Players.LocalPlayer.Name == "b9h7t3z6z2r7n5" then
             rank = "⭐ Owner"
         else
-            rank = "👤 Member"
+            rank = "⭐️ Member"
         end
 		
-		HomeTabPage.icon.ImageLabel.Image = "rbxassetid://10670510697"
+		HomeTabPage.icon.ImageLabel.Image = Players:GetUserThumbnailAsync(Players.LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
 		HomeTabPage.player.Text.Text = "Hello, " .. Players.LocalPlayer.DisplayName .." [" .. rank .."]"
 		HomeTabPage.player.user.Text = Players.LocalPlayer.Name .. " - ".. WindowSettings.Name
 
