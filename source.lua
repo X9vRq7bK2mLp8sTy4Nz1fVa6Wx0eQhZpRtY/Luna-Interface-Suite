@@ -2544,7 +2544,7 @@ function Luna:CreateWindow(WindowSettings)
 
 
 	local rank
-        if game.Players.LocalPlayer.Name == "IPNZ4" then
+        if game.Players.LocalPlayer.Name == "b9h7t3z6z2r7n5" then
             rank = "⭐ Owner"
         else
             rank = "👤 Member"
