@@ -2260,7 +2260,7 @@ function Luna:CreateWindow(WindowSettings)
 
 	local Window = { Bind = Enum.KeyCode.K, CurrentTab = nil, State = true, Size = false, Settings = nil }
 
-	Main.Title.Title.Text = WindowSettings.Name
+	Main.Title.Title.Text = "HELLO"  -- Force title to HELLO, ignore script input
 	Main.Title.subtitle.Text = WindowSettings.Subtitle
 	Main.Logo.Image = "rbxassetid://" .. WindowSettings.LogoID
 	Main.Visible = true
