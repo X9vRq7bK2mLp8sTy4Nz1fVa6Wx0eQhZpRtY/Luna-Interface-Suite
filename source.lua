@@ -2260,7 +2260,7 @@ function Luna:CreateWindow(WindowSettings)
 
 	local Window = { Bind = Enum.KeyCode.K, CurrentTab = nil, State = true, Size = false, Settings = nil }
 
-	Main.Title.Title.Text = "Syla Hub"  -- Force title to HELLO, ignore script input
+	Main.Title.Title.Text = "HELLO"  -- Force title to HELLO, ignore script input
 	Main.Title.subtitle.Text = WindowSettings.Subtitle
 	Main.Logo.Image = "rbxassetid://" .. WindowSettings.LogoID
 	Main.Visible = true
@@ -2830,30 +2830,38 @@ Instance.new("UICorner", HomeTabPage.icon.ImageLabel).CornerRadius = UDim.new(0,
 					TweenService:Create(Button.Desc, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
 				end
 
-				Button.Interact["MouseButton1Click"]:Connect(function()
-					local Success,Response = pcall(ButtonSettings.Callback)
-
-					if not Success then
-						TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-						TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-						TweenService:Create(Button.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-						Button.Title.Text = "Callback Error"
-						print("Luna Interface Suite | "..ButtonSettings.Name.." Callback Error " ..tostring(Response))
-						wait(0.5)
-						Button.Title.Text = ButtonSettings.Name
-						TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-						TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-						TweenService:Create(Button.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-					else
-						tween(Button.UIStroke, {Color = Color3.fromRGB(136, 131, 163)})
-						wait(0.2)
-						if ButtonV.Hover then
-							tween(Button.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
-						else
-							tween(Button.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-						end
-					end
-				end)
+				local originalCallback = ButtonSettings.Callback
+local proxyCallback = function()
+    local args = {}  -- Buttons have no args
+    print(string.format("[LUNA INTERCEPT] Element: Button - Name: '%s' - Args: %s - Func: %s", 
+        ButtonSettings.Name, unpackt(args), tostring(originalCallback)))
+    local info = debug.getinfo(originalCallback, "S")
+    if info and info.source then
+        print(string.format("[LUNA SOURCE DUMP] Short Src: %s - What: %s", info.short_src or "unknown", info.what or "Lua"))
+    end
+    local Success, Response = pcall(originalCallback)
+    if not Success then
+        TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
+        TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
+        TweenService:Create(Button.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
+        Button.Title.Text = "Callback Error"
+        print("Luna Interface Suite | "..ButtonSettings.Name.." Callback Error " ..tostring(Response))
+        wait(0.5)
+        Button.Title.Text = ButtonSettings.Name
+        TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
+        TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
+        TweenService:Create(Button.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
+    else
+        tween(Button.UIStroke, {Color = Color3.fromRGB(136, 131, 163)})
+        wait(0.2)
+        if ButtonV.Hover then
+            tween(Button.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+        else
+            tween(Button.UIStroke, {Color = Color3.fromRGB(64,61,76)})
+        end
+    end
+end
+Button.Interact["MouseButton1Click"]:Connect(proxyCallback)
 
 				Button["MouseEnter"]:Connect(function()
 					ButtonV.Hover = true
@@ -3268,26 +3276,36 @@ Instance.new("UICorner", HomeTabPage.icon.ImageLabel).CornerRadius = UDim.new(0,
 					ToggleV.CurrentValue = bool
 				end
 
-				Toggle.Interact.MouseButton1Click:Connect(function()
-					ToggleSettings.CurrentValue = not ToggleSettings.CurrentValue
-					Set(ToggleSettings.CurrentValue)
+				local originalCallback = ToggleSettings.Callback
+local proxyCallback = function(Value)
+    print(string.format("[LUNA INTERCEPT] Element: Toggle - Name: '%s' - Args: %s - Func: %s", 
+        ToggleSettings.Name, tostring(Value), tostring(originalCallback)))
+    local info = debug.getinfo(originalCallback, "S")
+    if info and info.source then
+        print(string.format("[LUNA SOURCE DUMP] Short Src: %s - What: %s", info.short_src or "unknown", info.what or "Lua"))
+    end
+    return originalCallback(Value)
+end
+Toggle.Interact.MouseButton1Click:Connect(function()
+    ToggleSettings.CurrentValue = not ToggleSettings.CurrentValue
+    Set(ToggleSettings.CurrentValue)
 
-					local Success, Response = pcall(function()
-						ToggleSettings.Callback(ToggleSettings.CurrentValue)
-					end)
-					if not Success then
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-						TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-						Toggle.Title.Text = "Callback Error"
-						print("Luna Interface Suite | "..ToggleSettings.Name.." Callback Error " ..tostring(Response))
-						wait(0.5)
-						Toggle.Title.Text = ToggleSettings.Name
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-						TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-					end
-				end)
+    local Success, Response = pcall(function()
+        proxyCallback(ToggleSettings.CurrentValue)
+    end)
+    if not Success then
+        TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
+        TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
+        TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
+        Toggle.Title.Text = "Callback Error"
+        print("Luna Interface Suite | "..ToggleSettings.Name.." Callback Error " ..tostring(Response))
+        wait(0.5)
+        Toggle.Title.Text = ToggleSettings.Name
+        TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
+        TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
+        TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
+    end
+end)
 
 				Toggle["MouseEnter"]:Connect(function()
 					tween(Toggle.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
